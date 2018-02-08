@@ -1,0 +1,180 @@
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+}
+
+.marketing p + h4 {
+    margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+
+.vakata-context { 
+  z-index: 100;
+}
+
+.highlight {
+    background-color:yellow;
+}
+
+.middle-column {
+    max-width : 100px;
+}
+
+.pb5 {
+    padding-bottom:5px;
+}
+.pb10 {
+    padding-bottom:10px;
+}
+.mr10 {
+    margin-right:10px;
+}
+/* ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all */
+
+.ui-datepicker {
+    z-index: 1031 !important; 
+}
+
+
+/* bootstrap modal in angular - prevent transition */
+.modal.fade {
+  opacity: 1;
+}
+
+.modal.fade .modal-dialog, .modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.CodeMirror {border: 1px solid silver; border-width: 1px 2px; }
+      .cm-header { font-family: arial; }
+      .cm-s-default .cm-header-1 { font-size: 150%; color:blue; }
+      .cm-s-default .cm-header-2 { font-size: 130%; color:red; }
+      .cm-s-default .cm-header-3 { font-size: 120%; color:green;}
+      .cm-s-default .cm-header-4 { font-size: 110%; color:grey;}
+      .cm-s-default .cm-header-5 { font-size: 100%; color:blue;}
+      .cm-s-default .cm-header-6 { font-size: 100%; color:black;}
+      .cm-s-default .cm-strong { font-size: 140%; }
+
+      .CodeMirror-activeline {}
+
+.CodeMirror-activeline-background {
+  background: #BEEBFF;
+}
+
+div.CodeMirror span.CodeMirror-matchingbracket {
+  color: #00B400;
+}
+
+.ct-label {
+  color : white;
+}
+
+
+
+/* for multiline */
+
+/*.jstree-default a { 
+    white-space:normal !important; height: auto; 
+}*/
+.jstree-anchor {
+    height: auto !important;
+    width: 100%;
+}
+.jstree-default li > ins { 
+    vertical-align:top; 
+}
+.jstree-leaf {
+    height: auto;
+}
+.jstree-leaf a{
+    height: auto !important;
+}
+
+
+@media (min-width: 768px) {
+.modal-dialog {
+width: auto !important;
+margin: 30px auto;
+}
+}

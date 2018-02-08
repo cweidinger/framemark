@@ -1,0 +1,31 @@
+<h1>2014 Comparison of Web Frameworks</h1>See also <a href="#github">Github repo comparisons</a><div class="row"><div class="form-group"><div class="btn-group"><dropdownselect label="i7" value="h[0]" options="ddoptions"></dropdownselect><dropdownselect label="EC2" value="h[1]" options="ddoptions"></dropdownselect><dropdownselect label="Peak" value="h[2]" options="ddoptions"></dropdownselect></div><div class="pull-right"><div class="btn-group"><dropdownselect label="JSON Ser." value="o[0]" options="ddoptions"></dropdownselect><dropdownselect label="Single Query" value="o[1]" options="ddoptions"></dropdownselect><dropdownselect label="Multiple Queries" value="o[2]" options="ddoptions"></dropdownselect><dropdownselect label="Fortunes" value="o[3]" options="ddoptions"></dropdownselect><dropdownselect label="Data Updates" value="o[4]" options="ddoptions"></dropdownselect><dropdownselect label="Plaintext" value="o[5]" options="ddoptions"></dropdownselect></div></div></div></div><div class="row"><form class="form-horizontal" role="form"><div class="form-group"><div class="row"><div class="col-sm-3"><select ng-model="setup" ng-options="setup.name for setup in setups"></select><button ng-click="saveSetup()" ng-show="showSaveAs" class="btn btn-primary btn-sm">Save As</button> <button ng-click="removeSetup()" ng-hide="showSaveAs" class="btn btn-primary btn-sm">Remove</button></div><label class="control-label col-sm-5" for="community_formula">Github Community (forks, stars, commits, last_commit):</label><div class="col-sm-4"><input class="form-control input-sm" type="text" ng-model="community_formula" id="community_formula"><br></div></div><div class="row"><!-- <button class="col-sm-3 btn btn-warning" ng-click="recalc()">Go Figure</button> --><div class="col-sm-3">{{result}}</div><label class="control-label col-sm-5" for="composite_formula">Composite (throughput, low_latency, community, lang_popularity, status_200)</label><div class="col-sm-4"><input class="form-control input-sm" type="text" ng-model="composite_formula" id="composite_formula"><br></div></div></div></form></div><rad tablename="tablename" recordlimit="500" rowclick="select" highlight="" selectcallback="showDetail" ref="tbl" id="github"></rad><div ng-controller="FrameworkDetailCtrl"><script type="text/ng-template" id="frameworkDetail.html"><div class="modal-header">
+            <h3 class="modal-title"> {{ fw.N }} </h3>
+        </div>
+        <div class="modal-body">
+        	<div class="cols-sm-3">
+            Platform: <b>{{ fw.P }}</b></br>
+            Language: <b>{{ fw.LN }}</b></br>
+            Language: <b>{{ fw.LN }}</b></br>
+         </div>
+         <div class="cols-sm-9">
+            <table class="table table-striped">
+            	<tr>
+            		<th>Type</th>
+            		<th>Requests / s</th>
+            		<th>%ile</th>
+            		<th>Latency (ms)</th>
+            		<th>%ile</th>
+               </tr>
+            	<tr ng-repeat="data in datas">
+            	  <td style="padding: 3px;">{{ data.metricName }}</td>
+            	  <td style="padding: 3px; text-align: right;">{{ data.hps }}</td>
+            	  <td style="padding: 3px; text-align: right;">{{ data.hpsP }}</td>
+            	  <td style="padding: 3px; text-align: right;">{{ data.latency }}</td>
+            	  <td style="padding: 3px; text-align: right;">{{ data.latencyP }}</td>
+               </tr>
+            </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="close()">Close</button>
+        </div></script></div>
