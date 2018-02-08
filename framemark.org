@@ -1,0 +1,111 @@
++ Setups
+  + local Storage
+  + restore defaults
+  + icons?
+  + LATER - share specific setup (GET query string, deserialize object), share specific set of setups
+  + WAY LATER - make a mongo database driven way of storing setups - people can rank
+    + rate
+    + pull down
++ references - techempower, github, redmonk
++ multiple files
+  + angular service for calculation
+  + go file for functional aspects
++ Integrate frameworks
+  + find one with same base name with JSON and plaintext and add records it doesn't already have - has to work for servlet and servicestack way
+    + mark the one that was successfully copied and when ALL others with the same name that don't have the records it has have been copied then DELETE the json/plaintext one
+    + if many matches as in bottle-mysql-raw then ~~just match the first one for now since it probably doesn't matter much
+    + rack-jruby should provide the plaintext for rails-jruby and rails-stripped-jruby BUT won't b/c first thing in the name doesn't match
+  + BETTER - from all the records with the same base, store a composite
+    + Composite is the A) latest, B) lowest, C) highest of the overlapping and apply it to - the rest that don't have it
+    + 2 passes per name?? or use maps
+      + 1st pass - store map with list of record with by base name and composite for each category - stores indexes to be accessed in real array
+      + 2nd pass - for each key in map, if > 1 index in list, goes to all indexes and fills in blank
+  + Hardcoding exceptions - 3rd pass
+    + nodejs as base for express
+    + rack-jruby as base for rails-jruby
+    + rack-ruby as base for rails-ruby
++ Community
+  + Hit github API for 
+    + last commit on master???, # of commits, # of committers
+    + LATER - comitter distribution (bus factor), commit distribution (more recent)
+  + LATER - crontab -e job to recreate file ~ include as seperate file in index.html - how often
+  + Track community growth - timeseries the community data to provide info similar to composite Change
++ EdiTable
+  + Add and Hide columns - extend editable, hook into control thru reference, provide seperate UI (like multi select listbox?
+    + How to provide UI
+    + Column name select box? ~ but how to hide and remove
++ Absolute query/show throughput and latency
++ Don't show in detailed view what isn't being selected in the base view
++ Why doesn't latency and throughput have a 100 record?
++ Show Change for
+  1. Composite
+  2. Community
+  3. Throughput??
+  4. Latency??
++ Latency
+  + Calculation??
+    + avg
+    + avg + SD
+  + Truncate worst latency's to give more meaningful comparison between the other competitors - 
+    + read down file and when average
+      if past half, if next is > 1.75 * last
++ Percentages
+  + Relative to the max 0 is 0, 100 is the max - gives absolutes, easier to calculate
+  + NO - relative to everyone else - gives an idea of how many other frameworks it's better than but is not otherwise helpful
+
+* Past Round
+// Better except more modification to existing code ~ but for the better
+r8 : {
+  maxT
+  maxL
+  fws
+}
+
+// NO - less modification but less coherent code
+r8 : [],
+r8maxT : 
+r8maxL : 
+r9 : [],
+..
+fixture : .. includes past field
+
+
+* Lessons learned
+Report 100-0 (relative to max), higher is better
+Relative Inversion = (max - value) / max
+
++ Past Rounds
+  + Result - it's not useful enough to add to the main page but will leave on analysis for those wanting to change columns and see it
+    + Often times a framework will change to improve either Throughput or Latency but improving one will hurt the other so no hard and fast rules
+    + Q: If lots of performance is squeezed out last time then will it continue to get faster?
+    + Rails, Ninga, Restexpress, 
+    + yaf, beego
+  + Implementation
+    + r08, f08, r09, f09
+    + compare function f08 and f09 composite score
+    + BUT it's relative to max score of each, I really should be comparing ABSOLUTES
+  + What if last round wasn't realistic but this round is?
+  + What if last had lots of errors but this didn't?
+  + Time machine to download Round 8
+  + How to integrate into data structrues
+    + must include all data so 
+    + after all the other calculations
+    + Compare % difference ((new - old) / old) for each metric, and disregard metrics that have missing data - then average them
+  + How to show in UI
+    + % improved as additional row in table = thisComposite% - lastComposite%
+    + LATER - arrows? +++, ++, +, ~, -, --, ---, ----, '' is no data -   doesn't give much information, more code - provides a quicker visual
++ Set relative importance of performance on different sorts of operations
+  + Resolution: must average so frameworks with fewer records wouldn't be automatically defeated. Therefore, we cannot enter formulas. Must just have multiplier.
+  + advanced scaffold
+    + multiply or add
+  + DISCUSSIOn
+  + what to do with missing records?
+    + don't include in average ~ but if I'm doing formulas that means I'm not averaging
+    + set as 0 ~ but if my formula includes a multiply then one factor can cause the rest to
+    + formula ~ but missing records will drag down the metrics and the ones with the most records will win
+  + Rules
+    + something with fewer records shouldn't beat something with more records just b/c there are fewer
+    + something with fewer records shouldn't be hugely disadvantaged by lack of records
+  + Solutions
+    + average
+    + weighted 
