@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NPM Migration Test</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-primary">NPM Migration Test</h1>
+        <p class="alert alert-success">If you can see this styled correctly, Bootstrap CSS is loading from npm!</p>
+        
+        <div id="test-results">
+            <h3>JavaScript Library Tests:</h3>
+            <div id="jquery-test" class="alert alert-warning">Testing jQuery...</div>
+            <div id="angular-test" class="alert alert-warning">Testing Angular...</div>
+            <div id="moment-test" class="alert alert-warning">Testing Moment.js...</div>
+        </div>
+    </div>
+
+    <!-- Load npm packages -->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/moment/min/moment.min.js"></script>
+    
+    <script>
+        // Test jQuery
+        $(document).ready(function() {
+            $('#jquery-test').removeClass('alert-warning').addClass('alert-success').text('✓ jQuery loaded successfully from npm!');
+        });
+        
+        // Test Angular
+        if (typeof angular !== 'undefined') {
+            $('#angular-test').removeClass('alert-warning').addClass('alert-success').text('✓ Angular loaded successfully from npm!');
+        }
+        
+        // Test Moment
+        if (typeof moment !== 'undefined') {
+            var now = moment().format('YYYY-MM-DD HH:mm:ss');
+            $('#moment-test').removeClass('alert-warning').addClass('alert-success').text('✓ Moment.js loaded successfully from npm! Current time: ' + now);
+        }
+    </script>
+</body>
+</html>
