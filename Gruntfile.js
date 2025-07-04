@@ -21,7 +21,7 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: {
       // configurable paths
-      app: require('./bower.json').appPath || 'app',
+      app: require('./package.json').name || 'app',
       dist: 'docs'
     },
 
@@ -330,13 +330,13 @@ module.exports = function (grunt) {
           flatten: true,
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>/styles',
-          src: ['bower_components/select2/*.png']
+          src: ['node_modules/select2/select2.png']
         }, { // for select
           expand: true,
           flatten: true,
           cwd: '<%= yeoman.app %>',
           dest: '<%= yeoman.dist %>/styles',
-          src: ['bower_components/select2/*.gif']
+          src: ['node_modules/select2/select2.gif']
         }, { // for jstree
           expand: true,
           flatten: true,
@@ -346,12 +346,12 @@ module.exports = function (grunt) {
         }, { // for jquery-ui
           expand: true,
           flatten: true,
-          cwd: '<%= yeoman.app %>/bower_components/jquery-ui/themes/base',
+          cwd: 'node_modules/jquery-ui/themes/base',
           src: ['images/*'],
           dest: '<%= yeoman.dist %>/styles/images'
         }, {
           expand: true,
-          cwd: '<%= yeoman.app %>/bower_components/bootstrap/dist',
+          cwd: 'node_modules/bootstrap/dist',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
         }]
